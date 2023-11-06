@@ -7,7 +7,7 @@ nav {
   }
   
   nav img {
-    width: 60px;
+    width: 100px;
   }
   
   nav ul {
@@ -16,7 +16,7 @@ nav {
   }
   
   nav li {
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
   
   nav a {
@@ -26,6 +26,17 @@ nav {
     font-size: 1.1rem;
     padding: 0.25rem;
   }
+
+  nav .company-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  font-weight: bold; 
+  color: #fff;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
   
   nav a:hover {
     background: #6C5CE7;
