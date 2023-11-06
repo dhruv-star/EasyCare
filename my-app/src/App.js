@@ -13,9 +13,15 @@ function App() {
   }
   return (
   <div className="app">
-      <Navbar />
-      <h1 className="welcome-text">Welcome to EasyCare!</h1>
+    <Navbar />
+    {!showSearch && (
+    <h1 className="welcome-text">Welcome to EasyCare!</h1>
+    )}
+    <>
+    {showSearch ? null : (
+
     <div className="button-container">
+
       <button className="square-button top-left">
         <FaUser />
         <p>User Setting</p> 
@@ -41,7 +47,11 @@ function App() {
         <p>Search and Book</p>
       </button>
     </div>
-    {showSearch && <SearchPage />}
+    )}
+    {showSearch && (
+          <SearchPage />  
+    )}
+    </>
 
   </div>
   );

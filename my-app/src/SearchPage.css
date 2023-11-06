@@ -1,0 +1,53 @@
+form {
+    padding: 20px;
+  }
+
+  .form-container {
+    height: 50vh;
+    width: 50vw; 
+    position: relative;
+    margin: auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input, button {
+    margin-top: 5px;
+    padding: 5px;
+  }
+
+  button.active {
+    background: #007bff;
+    color: #fff;
+  }
+  
+  button:not(.active) {
+    background: #fff;
+    border: 1px solid #ccc;
+  }
+
+  button[type="submit"] {
+    background: #28a745; 
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="date"] {
+    width: 150px; 
+}
+  
+input[type="time"] {
+    width: 100px;
+}
