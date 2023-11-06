@@ -46,9 +46,9 @@
 
 .square-button,
 .search-button {
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1); /* Softer shadow for buttons */
   border-radius: 10px;
-  background: linear-gradient(to right, #1DA1F2, #6C5CE7);
+  background: #E0E0E0; /* Neutral grey for button background */
   transition: all 0.2s ease-out;
 }
 
@@ -59,7 +59,7 @@
 
 .square-button:hover{
   transform: translateY(-5px);
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 0px 8px 15px rgba(0,0,0,0.2);
 }
 
 .top-left {
@@ -103,44 +103,53 @@
 .square-button p,
 .search-button p {
   font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 8px;
 }
 
 .square-button svg,
 .search-button svg {
   font-size: 60px;
+  color: #333;
 }
 
 
-.welcome-text {
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-  font-family: 'Great Vibes', cursive; 
-  font-size: 3rem;
+.welcome-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem; /* Maintaining the font size */
   text-align: center;
-  background: linear-gradient(to right, #1DA1F2, #6C5CE7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #333; /* A simple, dark color for elegance */
   font-weight: bold;
-  text-shadow: 
-      2px 2px 0 #a09a9a,
-      4px 4px 0 #d4d4d4;
   margin-top: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.app {
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensure it covers the full viewport height */
 }
 
 body {
-  background: #F5F8FA; 
-  color: #657786;
+  background: #FAFAFA; 
+  color: #333;
 }
 
 hr {
-  border-color: #AAB8C2;
+  border-color: #EAEAEA; /* Light border color for horizontal rules */
 }
 
 /* Accent colors */
 
 .callout {
-  color: #FF8C00;
+  color: #FFA07A;
 }
 
 .error {
-  color: #DE350B;
+  color: #E57373; 
 }

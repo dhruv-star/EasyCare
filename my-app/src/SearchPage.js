@@ -60,7 +60,7 @@ const SearchPage = () => {
         <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
       </label>
 
-      <div>
+      <div className='date-time-group'>
           <label>Start Date:
             <input type="date" value={startDate} onChange={(event) => setStartDate(event.target.value)} />
           </label>

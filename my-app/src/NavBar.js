@@ -1,4 +1,4 @@
-import  Brand  from './assets/icons/Donkey_in_Clovelly,_North_Devon,_England.jpeg';
+import Brand from "./assets/icons/business_logo.PNG";
 import { NavLink } from 'react-router-dom'
 import { FaHome, FaBell } from 'react-icons/fa';
 import './NavBar.css'
