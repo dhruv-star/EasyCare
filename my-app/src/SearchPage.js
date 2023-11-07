@@ -255,7 +255,7 @@ const SearchPage = () => {
       };
       if(submitClicked) {
        console.log(formData);
-       <listCaregiver dogWalkerData={dogWalkerData} />
+       <listCaregiver dogWalkerData={dogWalkerData} formData={formData} />
       }
     };
     return (
