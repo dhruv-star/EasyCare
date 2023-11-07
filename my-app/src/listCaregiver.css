@@ -1,0 +1,95 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.service-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.service-rating {
+  background-color: #ffdd57;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #333;
+}
+
+.service-price {
+  font-size: 1.2em;
+  color: #28a745;
+}
+
+.service-review {
+  font-style: italic;
+}
+
+.sidebar {
+  flex: 0 0 200px;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.filter-form {
+  margin-bottom: 20px;
+}
+
+.filter-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.filter-form input[type="text"],
+.filter-form input[type="number"],
+.filter-form select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.filter-form button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-form button:hover {
+  background-color: #0056b3;
+}
+
+.container {
+  display: flex;
+}
