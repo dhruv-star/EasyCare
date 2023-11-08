@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import './SearchPage.css'
 import {FaPaw} from 'react-icons/fa';
 
-import listCaregiver from './listCaregiver';
-
-
+import ListCaregiver from './ListCaregiver';
 
 const SearchPage = () => {
     const [services, setServices] = useState('');
@@ -15,6 +13,7 @@ const SearchPage = () => {
     const [endTime, setEndTime] = useState('');
     const [dogSize, setDogSize] = useState('');
     const [submitClicked, setSubmitClicked] = useState(false);
+    const [formData, setFormData] = useState({});
 
     const serviceOptions = [
       {label: 'House Sitting', value: 'House Sitting'},
@@ -253,13 +252,14 @@ const SearchPage = () => {
         endTime,
         dogSize,
       };
-      if(submitClicked) {
-       console.log(formData);
-       <listCaregiver dogWalkerData={dogWalkerData} formData={formData} />
-      }
+     
+      setFormData(formData);
+    
     };
+    
     return (
     <div className="form-container">
+    {!submitClicked ? (  
     <form onSubmit={handleSubmit}>
       <label>Services (Pick one):
       <div>
@@ -308,7 +308,9 @@ const SearchPage = () => {
       </label>
 
       <button type="submit" onClick={() => setSubmitClicked(true)}> <FaPaw /> Submit</button>
-    </form>
+    </form> ) : (
+        <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />
+      )}
     </div>
     );
 }
