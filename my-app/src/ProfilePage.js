@@ -27,6 +27,9 @@ const ProfilePage = ({ walker }) => {
         <button className="contact-button">
           <FaPhone /> Contact {walker.name.split(" ")[0]}
         </button>
+        <button className="favorite-button">
+          <FaHeart /> {/* Implement favorite logic */}
+        </button>
       </header>
     </div>
   );
