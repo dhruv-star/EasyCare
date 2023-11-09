@@ -71,7 +71,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
   return (
     <div className="container">
       {selectedWalker ? (
-        <ProfilePage walker={selectedWalker} />
+        <ProfilePage walker={selectedWalker} formData={formData}/>
       ) : (
         <>
       <div className="sidebar">

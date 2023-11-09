@@ -1,12 +1,24 @@
 import React from "react";
 import "./ProfilePage.css"; // Create and import your CSS styles as needed
 import { FaStar, FaRegStar, FaPhone, FaHeart } from "react-icons/fa";
+import { useState } from 'react';
+import CheckoutPage from './CheckoutPage';
 
-const ProfilePage = ({ walker }) => {
+
+
+const ProfilePage = ({ walker, formData }) => {
   // Structure your profile page here using the walker details
   const reviews = walker.reviews || [];
 
+  const [showCheckout, setCheckOut] = useState(false);
+
+  const goToCheckOut = () => {
+    setCheckOut(true);
+  }
+
   return (
+    <>
+    {showCheckout ? null : (
     <div class="profile-container">
       <div class="profile-header">
         <div className="profile-left">
@@ -62,7 +74,15 @@ const ProfilePage = ({ walker }) => {
           <p>No reviews available.</p>
         )}
       </div>
+      
+      <div><button onClick={goToCheckOut}> 
+                Confirm 
+      </button></div>
     </div>
+    )}
+    {showCheckout && (<CheckoutPage formData={formData}/>)
+    }
+  </>
   );
 };
 
