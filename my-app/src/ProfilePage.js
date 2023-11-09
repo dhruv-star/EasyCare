@@ -4,6 +4,7 @@ import { FaStar, FaRegStar, FaPhone, FaHeart } from "react-icons/fa";
 
 const ProfilePage = ({ walker }) => {
   // Structure your profile page here using the walker details
+  const reviews = walker.reviews || [];
 
   return (
     <div class="profile-container">
@@ -24,7 +25,8 @@ const ProfilePage = ({ walker }) => {
         <button
           class="contact-button"
           style={{ backgroundColor: "#007bff", color: "white" }}
-        >Book
+        >
+          Book
         </button>
         <div class="favorite-icon">♡</div>
       </div>
@@ -48,11 +50,17 @@ const ProfilePage = ({ walker }) => {
 
       <div class="profile-reviews">
         <h2>Reviews</h2>
-        <div class="review">
-          <p class="review-author">Grant B.</p>
-          <p class="review-date">Sep 8,2023</p>
-          <p class="review-content">{walker.reviews[0].comment}</p>
-        </div>
+        {reviews.length > 0 ? (
+          reviews.map((review, index) => (
+            <div key={index} className="review">
+              <p className="review-author">{review.customerName}</p>
+              <p className="review-date">{review.date}</p>
+              <p className="review-content">{review.comment}</p>
+            </div>
+          ))
+        ) : (
+          <p>No reviews available.</p>
+        )}
       </div>
     </div>
   );
