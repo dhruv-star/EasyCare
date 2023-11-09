@@ -1,0 +1,140 @@
+/* ProfilePage.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 820px;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.profile-name {
+  font-size: 32px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.profile-location {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.profile-rating {
+  font-size: 20px;
+  color: #ff9500;
+  margin-bottom: 10px;
+}
+
+.response-rate {
+  display: block;
+  font-size: 16px;
+  color: #666;
+}
+
+.contact-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.favorite-icon {
+  font-size: 24px;
+  color: #ff4141;
+  cursor: pointer;
+}
+
+.profile-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.profile-services, .profile-availability {
+  flex-basis: 45%;
+}
+
+.profile-services h2, .profile-availability h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.pricing {
+  font-weight: bold;
+  color: #333;
+}
+
+.additional-services-button {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.profile-reviews {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.profile-reviews h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.review {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.review-author {
+  font-weight: bold;
+  color: #333;
+}
+
+.review-date {
+  color: #666;
+  font-size: 14px;
+}
+
+.review-content {
+  color: #333;
+  font-size: 16px;
+  margin-top: 10px;
+}

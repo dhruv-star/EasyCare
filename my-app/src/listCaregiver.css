@@ -190,11 +190,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  right: -350px;
+  top: 70px;
 }
 
 /* Styles for the filled heart (favorited) */
 .filled-heart {
-  color: red; /* Color for when the item is favorited */
+  color: rgb(228, 10, 10); /* Color for when the item is favorited */
   font-size: 1.5em; /* Adjust size as needed */
 }
 
