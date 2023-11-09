@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./ListCaregiver.css";
 import ProfilePage from "./ProfilePage";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 const ListCaregiver = ({ dogWalkerData, formData }) => {
   const [formValues, setFormValues] = useState({
     serviceType: formData.services || "",
@@ -36,6 +37,36 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
     // Filter dogWalkerData based on formValues here
     console.log("Submitted values:", formValues);
   };
+
+  const [favorites, setFavorites] = useState({});
+
+  // Function to toggle favorite status
+  const toggleFavorite = (id) => {
+    setFavorites((prevFavorites) => ({
+      ...prevFavorites,
+      [id]: !prevFavorites[id],
+    }));
+  };
+
+  // FavoriteButton component
+  const FavoriteButton = ({ id }) => {
+    return (
+      <button
+        onClick={() => toggleFavorite(id)}
+        aria-label="Favorite"
+        className="favorite-button"
+      >
+        {favorites[id] ? (
+          <FaHeart className="filled-heart" />
+        ) : (
+          <FaRegHeart className="empty-heart" />
+        )}
+      </button>
+    );
+  };
+
+// export default FavoriteButton;
+
 
   return (
     <div className="container">
@@ -181,6 +212,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
               onClick={() => handleWalkerClick(walker)}
             >
               <div className="service-header">
+                <FavoriteButton id={walker.id} />
                 <img
                   src={walker.imageUrl}
                   alt={walker.name}
@@ -189,14 +221,14 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
                 <div className="service-details">
                   <div className="service-info">
                     <span className="service-name">{walker.name}</span>
-                    <span className="service-price">{`$${walker.hourlyPrice} an hour`}</span>
+                    <span className="service-price">{`$${walker.hourlyPrice}/hr`}</span>
                   </div>
                   <span className="service-rating">
                     {walker.overallRating} ({walker.reviews.length} reviews)
                   </span>
-                  {/* 
+                   
                   <p className="service-review">{walker.reviews[0].comment}</p> 
-                   */}
+                  
                   <div className="service-location">{`${walker.location.city}, ${walker.location.zipCode}`}</div>
                 </div>
               </div>

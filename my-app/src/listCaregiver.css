@@ -41,7 +41,7 @@ body {
 .service-price {
   color: #28a745;
   font-size:  1.5rem;
-  margin-left: -500px;
+  margin-left: -650px;
 }
 
 .service-location {
@@ -58,8 +58,8 @@ body {
   margin-bottom: 10px;
   color: #666;
   position: absolute; /* Position the review in the top right corner */
-  top: 35px; /* Adjust the top position as needed */
-  right: 10px; /* Adjust the right position as needed */
+  top: 58px; /* Adjust the top position as needed */
+  right: 62px; /* Adjust the right position as needed */
 }
 
 .sidebar {
@@ -136,7 +136,7 @@ body {
   height: 100px; /* adjust as needed */
   object-fit: cover;
   border-radius: 50%; /* for round images */
-  margin-right: 500px;
+  margin-right: 650px;
 }
 
 .service-header {
@@ -155,7 +155,7 @@ body {
   margin: 0px 0;
   position: absolute; /* Position the name underneath the image */
   top: 0px; /* Adjust the top position as needed */
-  left: 10%; /* Center the name horizontally */
+  left: 50px; /* Center the name horizontally */
   transform: translateX(-50%); /* Center the name horizontally */
 }
 
@@ -177,4 +177,29 @@ body {
 
 .service-info {
   text-align: center;
+}
+
+/* Favorite button styles */
+.favorite-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 10px; /* Adjust spacing around the button as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles for the filled heart (favorited) */
+.filled-heart {
+  color: red; /* Color for when the item is favorited */
+  font-size: 1.5em; /* Adjust size as needed */
+}
+
+/* Styles for the empty heart (not favorited) */
+.empty-heart {
+  color: grey; /* Color for when the item is not favorited */
+  font-size: 1.5em; /* Adjust size as needed */
 }
