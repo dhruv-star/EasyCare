@@ -6,7 +6,7 @@ form {
 }
 
 .form-container {
-  max-width: 80vw;
+  /* max-width: ; */
   margin: 2rem auto;
   padding: 2rem;
   background: #ffffff;
@@ -76,13 +76,13 @@ input[type="time"] {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .form-container {
     width: 90vw; /* Full width on smaller screens */
-  }
+  /* } */
   
-  form {
+  /* form {
     gap: 15px; /* Smaller gap on smaller screens */
-  }
+  /* }   */
 
-}
+/* } */

@@ -1,39 +1,50 @@
-import React, { useState } from 'react';
-import './ListCaregiver.css'
-
+import { useState } from "react";
+import "./ListCaregiver.css";
+import ProfilePage from "./ProfilePage";
 const ListCaregiver = ({ dogWalkerData, formData }) => {
-
- const [formValues, setFormValues] = useState({
-    serviceType: formData.services || '',
-    location: formData.location || '',
-    startDate: formData.startDate || '',
-    endDate: formData.endDate || '',
-    startTime: formData.startTime || '',
-    endTime: formData.endTime || '',
-    dogSize: formData.dogSize || '',
+  const [formValues, setFormValues] = useState({
+    serviceType: formData.services || "",
+    location: formData.location || "",
+    startDate: formData.startDate || "",
+    endDate: formData.endDate || "",
+    startTime: formData.startTime || "",
+    endTime: formData.endTime || "",
+    dogSize: formData.dogSize || "",
   });
+
+  const [selectedWalker, setSelectedWalker] = useState(null);
 
   // Update state when form values change
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormValues((prevValues) => ({
       ...prevValues,
-      [name]: value
+      [name]: value,
     }));
   };
 
-   // Handle form submission
+  const handleWalkerClick = (walker) => {
+    // Set the selected walker and possibly change the route
+    setSelectedWalker(walker);
+    // If using React Router, you might do something like:
+    // navigate(`/caregiver/${walker.id}`); // navigate is from useNavigate hook
+  };
+
+  // Handle form submission
   const handleSubmit = (event) => {
     //event.preventDefault();
     // Filter dogWalkerData based on formValues here
-    console.log('Submitted values:', formValues);
+    console.log("Submitted values:", formValues);
   };
 
-
   return (
-    <div class="container">
+    <div className="container">
+      {selectedWalker ? (
+        <ProfilePage walker={selectedWalker} />
+      ) : (
+        <>
       <div className="sidebar">
-        <form className="filter-form">
+        <form className="filter-form" onSubmit={handleSubmit}>
           <label htmlFor="serviceType">Service type</label>
           <div>
             <input
@@ -161,24 +172,40 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
           <button type="submit">Search</button>
         </form>
       </div>
-
       <div className="main-content">
         <ul className="service-list">
           {dogWalkerData.map((walker) => (
-            <li key={walker.id} className="service-item">
+            <li
+              key={walker.id.toString()}
+              className="service-item"
+              onClick={() => handleWalkerClick(walker)}
+            >
               <div className="service-header">
-                <span className="service-name">{walker.name}</span>
-                <span className="service-rating">
-                  {walker.overallRating} ({walker.reviews.length} reviews)
-                </span>
+                <img
+                  src={walker.imageUrl}
+                  alt={walker.name}
+                  className="service-image"
+                />
+                <div className="service-details">
+                  <div className="service-info">
+                    <span className="service-name">{walker.name}</span>
+                    <span className="service-price">{`$${walker.hourlyPrice} an hour`}</span>
+                  </div>
+                  <span className="service-rating">
+                    {walker.overallRating} ({walker.reviews.length} reviews)
+                  </span>
+                  {/* 
+                  <p className="service-review">{walker.reviews[0].comment}</p> 
+                   */}
+                  <div className="service-location">{`${walker.location.city}, ${walker.location.zipCode}`}</div>
+                </div>
               </div>
-              <div>{`${walker.location.city}, ${walker.location.zipCode}`}</div>
-              <div className="service-price">{`$${walker.hourlyPrice} per hour`}</div>
-              <p className="service-review">{walker.reviews[0].comment}</p>
             </li>
           ))}
         </ul>
       </div>
+      </>
+      )}
     </div>
   );
 };

@@ -1,5 +1,4 @@
 body {
-  display: flex;
   min-height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
@@ -13,19 +12,23 @@ body {
 }
 
 .service-item {
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .service-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.service-name {
-  font-size: 1.2em;
-  font-weight: bold;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .service-rating {
@@ -36,12 +39,27 @@ body {
 }
 
 .service-price {
-  font-size: 1.2em;
   color: #28a745;
+  font-size:  1.5rem;
+  margin-left: -500px;
+}
+
+.service-location {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+  position: absolute; /* Position the location in the top right corner */
+  top: 41px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
 }
 
 .service-review {
-  font-style: italic;
+   font-style: italic;
+  margin-bottom: 10px;
+  color: #666;
+  position: absolute; /* Position the review in the top right corner */
+  top: 35px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
 }
 
 .sidebar {
@@ -92,4 +110,71 @@ body {
 
 .container {
   display: flex;
+  gap: 20px;
+}
+
+.service-image {
+  border-radius: 50%; /* Makes the image round */
+  width: 120px; /* Adjust as needed */
+  height: 120px; /* Adjust as needed */
+  object-fit: cover;
+  border: 3px solid #ddd; /* Optional: adds a border around the image */
+  margin-bottom: 10px;
+}
+
+.main-content {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+  max-width: 200px; /* Adjust as necessary */
+}
+
+.service-item img {
+  width: 100px; /* adjust as needed */
+  height: 100px; /* adjust as needed */
+  object-fit: cover;
+  border-radius: 50%; /* for round images */
+  margin-right: 500px;
+}
+
+.service-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-details {
+  text-align: center;
+}
+
+.service-name {
+  font-weight: bold;
+  font-size: 1.5rem; /* Adjust the size as needed */
+  margin: 0px 0;
+  position: absolute; /* Position the name underneath the image */
+  top: 0px; /* Adjust the top position as needed */
+  left: 10%; /* Center the name horizontally */
+  transform: translateX(-50%); /* Center the name horizontally */
+}
+
+.service-name,
+.service-rating {
+  margin-left: 150px;
+}
+
+.service-rating {
+  background-color: #ffc107;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  position: absolute; /* Position the rating in the top right corner */
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+}
+
+.service-info {
+  text-align: center;
 }
