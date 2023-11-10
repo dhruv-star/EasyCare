@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/EasyCare/static/css/main.f94d0e3c.css",
+    "main.js": "/EasyCare/static/js/main.ab56b711.js",
+    "static/js/787.d4aba7ab.chunk.js": "/EasyCare/static/js/787.d4aba7ab.chunk.js",
+    "static/media/virat.jpeg": "/EasyCare/static/media/virat.14ebe6286f105971c375.jpeg",
+    "static/media/business_logo.PNG": "/EasyCare/static/media/business_logo.df59bcdc382661e9960f.PNG",
+    "static/media/sachin.png": "/EasyCare/static/media/sachin.d5a5b684e0abbf197e4a.png",
+    "index.html": "/EasyCare/index.html",
+    "main.f94d0e3c.css.map": "/EasyCare/static/css/main.f94d0e3c.css.map",
+    "main.ab56b711.js.map": "/EasyCare/static/js/main.ab56b711.js.map",
+    "787.d4aba7ab.chunk.js.map": "/EasyCare/static/js/787.d4aba7ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f94d0e3c.css",
+    "static/js/main.ab56b711.js"
+  ]
+}
