@@ -4,7 +4,7 @@ import { FaPaw } from "react-icons/fa";
 import caregiver1 from "./assets/icons/virat.jpeg";
 import caregiver2 from "./assets/icons/sachin.png";
 
-import ListCaregiver from "./ListCaregiver";
+import ListCaregiver from "./listCaregiver";
 
 const SearchPage = () => {
 
