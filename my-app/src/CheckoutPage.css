@@ -12,6 +12,7 @@ line {
     margin-bottom: 10px;
     font-size: 25px;
     text-align: center;
+    padding-top: 10px;
 }
 
 button[type="confirm"] {

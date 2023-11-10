@@ -35,6 +35,7 @@ const ProfilePage = ({ walker, formData }) => {
           <span class="response-rate">Response Rate: 98%</span>
         </div>
         <button
+          onClick={goToCheckOut}
           class="contact-button"
           style={{ backgroundColor: "#007bff", color: "white" }}
         >
@@ -74,13 +75,9 @@ const ProfilePage = ({ walker, formData }) => {
           <p>No reviews available.</p>
         )}
       </div>
-      
-      <div><button onClick={goToCheckOut}> 
-                Confirm 
-      </button></div>
     </div>
     )}
-    {showCheckout && (<CheckoutPage formData={formData}/>)
+    {showCheckout && (<CheckoutPage formData={formData} walker ={walker}/>)
     }
   </>
   );

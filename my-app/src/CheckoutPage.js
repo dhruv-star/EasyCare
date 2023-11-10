@@ -3,7 +3,7 @@ import './CheckoutPage.css'
 import { useState } from 'react';
 
 
-function CheckoutPage({formData}) {
+function CheckoutPage({formData, walker}) {
     const [isConfirmed, setIsConfirmed] = useState(false);
 
     const handleHomeScreen = () => {
@@ -23,6 +23,7 @@ function CheckoutPage({formData}) {
             <line><b>Date:</b> <u>({formData.startDate}) - ({formData.endDate})</u></line>
             <line><b>Time:</b> <u>{formData.startTime} - {formData.endTime}</u></line>  
             <line><b>Dog Size:</b> <u>{formData.dogSize}</u></line>
+            <line><b>Caregiver:</b> <u>{walker.name}</u></line>
             <line><button type="confirm" onClick={handleHomeScreen}> 
                 Confirm 
             </button></line>     
