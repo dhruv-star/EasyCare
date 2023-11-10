@@ -103,7 +103,7 @@ const SearchPage = () => {
     ],
     availabilty: [{
       days: "Mon, Tue, Wed, Fri",
-      time: "10am - 3pm"
+      Time: "10am - 3pm"
     }],
       imageUrl: caregiver2,
     },
@@ -147,7 +147,7 @@ const SearchPage = () => {
     ],
       availabilty: [{
         days: "Mon, Wed, Fri",
-        time: "11am - 5pm"
+        Time: "11am - 5pm"
       }],
       imageUrl: "https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg",
     },
@@ -181,7 +181,7 @@ const SearchPage = () => {
     ],
       availabilty: [{
         days: "Mon, Wed, Fri, Sat, Sun",
-        time: "7am - 7pm"
+        Time: "7am - 7pm"
       }],
       imageUrl:
         "https://images.dog.ceo/breeds/terrier-norwich/n02094258_230.jpg",
@@ -227,7 +227,7 @@ const SearchPage = () => {
     ],
       availabilty: [{
         days: "Fri, Sat, Sun",
-        time: "1am - 9pm"
+        Time: "1am - 9pm"
       }],
       imageUrl:
         "https://images.dog.ceo/breeds/terrier-norwich/n02094258_2943.jpg",
@@ -262,7 +262,7 @@ const SearchPage = () => {
     ],
       availabilty: [{
         days: "Mon, Wed, Thur, Sat, Sun",
-        time: "6am - 6pm"
+        Time: "6am - 6pm"
       }],
       imageUrl:
         "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_5949.jpg",
@@ -304,7 +304,7 @@ const SearchPage = () => {
     ],
       availabilty: [{
         days: "Mon, Wed, Thur, Sun",
-        time: "9am - 5pm"
+        Time: "9am - 5pm"
       }],
       imageUrl:
         "https://images.dog.ceo/breeds/terrier-norwich/n02094258_553.jpg",
@@ -339,7 +339,7 @@ const SearchPage = () => {
     ],
       availabilty: [{
         days: "Mon, Wed, Thur",
-        time: "7am - 5pm"
+        Time: "7am - 5pm"
       }],
       imageUrl:
         "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_1158.jpg",
@@ -378,7 +378,7 @@ const SearchPage = () => {
     ],
       availabilty: [{
         days: "Wed, Thur, Fri",
-        time: "12pm - 5pm"
+        Time: "12pm - 5pm"
       }],
       imageUrl:
         "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_6882.jpg",
@@ -421,7 +421,7 @@ const SearchPage = () => {
     ],
       availabilty: [{
         days: "Mon, Tue, Wed, Thur",
-        time: "10am - 6pm"
+        Time: "10am - 6pm"
       }],
       imageUrl: "https://images.dog.ceo/breeds/shihtzu/n02086240_2887.jpg",
     },

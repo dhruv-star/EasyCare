@@ -34,17 +34,17 @@ const ProfilePage = ({ walker }) => {
       <div class="profile-section">
         <div class="profile-services">
           <h2>Services</h2>
-          <p>
-            House Sitting <span class="pricing">$25 per visit</span>
-          </p>
-          <p>
-            Dog Walking <span class="pricing">$15 per visit</span>
-          </p>
+          {walker.offeredServices.map((service, index) => (
+            <p key={index}>
+              {service.service_name}{" "}
+              <span className="pricing">: ${service.price} per visit</span>
+            </p>
+          ))}
         </div>
         <div class="profile-availability">
           <h2>Availability</h2>
-          <p>Days: Mon, Tues, Wed, Sat</p>
-          <p>Time: from 9 AM to 4 PM</p>
+          <p>Days : {walker.availabilty[0].days}</p>
+          <p>Time : {walker.availabilty[0].Time}</p>
         </div>
       </div>
 
