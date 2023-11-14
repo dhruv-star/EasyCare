@@ -15,8 +15,8 @@ function CheckoutPage({ formData, walker }) {
     <>
       {isConfirmed ? null : (
         <div className="holder">
-          <h1 className="welcome-text">Contact {walker.name}</h1>
-          <label>
+          <h1 className="welcome-text">Checkout {walker.name}</h1>
+          <label id="checkout">
             <b>Services:</b>{" "}
             <input
               type="text"
@@ -25,7 +25,7 @@ function CheckoutPage({ formData, walker }) {
               // onChange={handleChange}
             />
           </label>
-          <label>
+          <label id="checkout">
             <b>Location:</b>{" "}
             <input
               type="text"
@@ -34,7 +34,7 @@ function CheckoutPage({ formData, walker }) {
               // onChange={handleChange}
             />
           </label>
-          <label>
+          <label id="checkout">
             <b>Date:</b>{" "}
             <input
               type="text"
@@ -43,7 +43,7 @@ function CheckoutPage({ formData, walker }) {
               // onChange={handleInputChange}
             />
           </label>
-          <label>
+          <label id="checkout">
             <b>Time:</b>{" "}
             <input
               type="text"
@@ -53,7 +53,7 @@ function CheckoutPage({ formData, walker }) {
             />
           </label>
           <h2 className="welcome-text">Pet Information</h2>
-          <label>
+          <label id="checkout">
             <b>Dog Size:</b>{" "}
             <input
               type="text"
@@ -62,7 +62,7 @@ function CheckoutPage({ formData, walker }) {
               // onChange={handleChange}
             />
           </label>
-          <label>
+          <label id="checkout">
             <button type="confirm" onClick={handleHomeScreen}>
               Confirm
             </button>
