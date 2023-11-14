@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchPage.css";
 import { FaPaw } from "react-icons/fa";
-import caregiver1 from "./assets/icons/virat.jpeg";
+import caregiver1 from "./assets/icons/virat.webp";
 import caregiver2 from "./assets/icons/sachin.png";
 
 import ListCaregiver from "./listCaregiver";
