@@ -79,7 +79,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
           <label htmlFor="serviceType">Service type</label>
           <div>
             <input
-              type="radio"
+              type="checkbox"
               id="dogWalking"
               name="serviceType"
               value="dogWalking"
@@ -87,10 +87,8 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
               checked={formData.serviceType === "dogWalking"}
             />
             <label htmlFor="dogWalking">Dog Walking</label>
-          </div>
-          <div>
             <input
-              type="radio"
+              type="checkbox"
               id="houseSitting"
               name="serviceType"
               value="houseSitting"
@@ -98,10 +96,8 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
               checked={formData.serviceType === "houseSitting"}
             />
             <label htmlFor="houseSitting">House Sitting</label>
-          </div>
-          <div>
             <input
-              type="radio"
+              type="checkbox"
               id="vetAppointment"
               name="serviceType"
               value="vetAppointment"
@@ -109,10 +105,8 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
               checked={formData.serviceType === "vetAppointment"}
             />
             <label htmlFor="vetAppointment">Vet Appointment</label>
-          </div>
-          <div>
             <input
-              type="radio"
+              type="checkbox"
               id="groomCare"
               name="serviceType"
               value="groomCare"
@@ -151,7 +145,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
           <label htmlFor="dogSize">Dog Size</label>
           <div>
             <input
-              type="radio"
+              type="checkbox"
               id="size0-15"
               name="dogSize"
               value="0-15"
@@ -162,7 +156,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
           </div>
           <div>
             <input
-              type="radio"
+              type="checkbox"
               id="size16-40"
               name="dogSize"
               value="16-40"
@@ -173,7 +167,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
           </div>
           <div>
             <input
-              type="radio"
+              type="checkbox"
               id="size41-100"
               name="dogSize"
               value="41-100"
@@ -184,7 +178,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
           </div>
           <div>
             <input
-              type="radio"
+              type="checkbox"
               id="size101+"
               name="dogSize"
               value="101+"

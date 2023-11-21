@@ -139,6 +139,7 @@ body {
   margin-right: 650px;
 }
 
+
 .service-header {
   display: flex;
   flex-direction: column;
@@ -147,6 +148,22 @@ body {
 
 .service-details {
   text-align: center;
+}
+
+.filter-form div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; 
+}
+
+.filter-form input[type="checkbox"] + label {
+  font-size: 1rem; /* Adjust the size as needed */
+  margin-left: 5px; 
+}
+
+.filter-form input[type="checkbox"] + label {
+  font-size:  1rem; /* Adjust the size as needed */
+  margin-left: 10px; /* Adjust the spacing as needed */
 }
 
 .service-name {
@@ -193,6 +210,12 @@ body {
   position: relative;
   right: -350px;
   top: 70px;
+}
+
+.filter-form input[type="checkbox"] {
+  /* Your existing styles */
+  width: 16px; /* Adjust the width as needed */
+  height: 16px; /* Adjust the height as needed */
 }
 
 /* Styles for the filled heart (favorited) */

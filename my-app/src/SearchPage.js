@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "./SearchPage.css";
 import { FaPaw } from "react-icons/fa";
-import caregiver1 from "./assets/icons/virat.jpeg";
+import caregiver1 from "./assets/icons/virat.webp";
 import caregiver2 from "./assets/icons/sachin.png";
 
-import ListCaregiver from "./listCaregiver";
+import ListCaregiver from "./ListCaregiver";
 
 const SearchPage = () => {
-
   const [services, setServices] = useState("");
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -17,6 +16,13 @@ const SearchPage = () => {
   const [dogSize, setDogSize] = useState("");
   const [submitClicked, setSubmitClicked] = useState(false);
   const [formData, setFormData] = useState({});
+
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(position => {
+      setLocation(`${position.coords.latitude}, ${position.coords.longitude}`)
+      console.log(`${position.coords.latitude}, ${position.coords.longitude}`)
+    });
+  }
 
   const serviceOptions = [
     { label: "House Sitting", value: "House Sitting" },
@@ -59,19 +65,22 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 35,
-      offeredServices: [{
-        service_name: "Dog Walker",
-        price: "30"
-      },
-      {
-        service_name: "House Sitting",
-        price: "25"
-      }
-    ],
-      availabilty: [{
-        days: "Mon, Wed, Thur",
-        Time: "7am - 5pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Dog Walker",
+          price: "30",
+        },
+        {
+          service_name: "House Sitting",
+          price: "25",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Mon, Wed, Thur",
+          Time: "7am - 5pm",
+        },
+      ],
       imageUrl: caregiver1,
     },
     {
@@ -92,19 +101,22 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 40,
-      offeredServices: [{
-        service_name: "House Sitting",
-        price: "30"
-      },
-      {
-        service_name: "Vet Appointment",
-        price: "45"
-      }
-    ],
-    availabilty: [{
-      days: "Mon, Tue, Wed, Fri",
-      Time: "10am - 3pm"
-    }],
+      offeredServices: [
+        {
+          service_name: "House Sitting",
+          price: "30",
+        },
+        {
+          service_name: "Vet Appointment",
+          price: "45",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Mon, Tue, Wed, Fri",
+          Time: "10am - 3pm",
+        },
+      ],
       imageUrl: caregiver2,
     },
     {
@@ -132,23 +144,26 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 25,
-      offeredServices: [{
-        service_name: "Dog Walker",
-        price: "30"
-      },
-      {
-        service_name: "House Sitting",
-        price: "20"
-      },
-      {
-        service_name: "Vet Appointment",
-        price: "35"
-      }
-    ],
-      availabilty: [{
-        days: "Mon, Wed, Fri",
-        Time: "11am - 5pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Dog Walker",
+          price: "30",
+        },
+        {
+          service_name: "House Sitting",
+          price: "20",
+        },
+        {
+          service_name: "Vet Appointment",
+          price: "35",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Mon, Wed, Fri",
+          Time: "11am - 5pm",
+        },
+      ],
       imageUrl: "https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg",
     },
     {
@@ -170,19 +185,22 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 30,
-      offeredServices: [{
-        service_name: "Dog Walker",
-        price: "30"
-      },
-      {
-        service_name: "Groom Care",
-        price: "50"
-      },
-    ],
-      availabilty: [{
-        days: "Mon, Wed, Fri, Sat, Sun",
-        Time: "7am - 7pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Dog Walker",
+          price: "30",
+        },
+        {
+          service_name: "Groom Care",
+          price: "50",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Mon, Wed, Fri, Sat, Sun",
+          Time: "7am - 7pm",
+        },
+      ],
       imageUrl:
         "https://images.dog.ceo/breeds/terrier-norwich/n02094258_230.jpg",
     },
@@ -212,23 +230,26 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 45,
-      offeredServices: [{
-        service_name: "Dog Walker",
-        price: "35"
-      },
-      {
-        service_name: "House Sitting",
-        price: "25"
-      },
-      {
-        service_name: "Vet Appointment",
-        price: "40"
-      }
-    ],
-      availabilty: [{
-        days: "Fri, Sat, Sun",
-        Time: "1am - 9pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Dog Walker",
+          price: "35",
+        },
+        {
+          service_name: "House Sitting",
+          price: "25",
+        },
+        {
+          service_name: "Vet Appointment",
+          price: "40",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Fri, Sat, Sun",
+          Time: "1am - 9pm",
+        },
+      ],
       imageUrl:
         "https://images.dog.ceo/breeds/terrier-norwich/n02094258_2943.jpg",
     },
@@ -251,19 +272,22 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 20,
-      offeredServices: [{
-        service_name: "Dog Walker",
-        price: "30"
-      },
-      {
-        service_name: "Vet Appointment",
-        price: "25"
-      }
-    ],
-      availabilty: [{
-        days: "Mon, Wed, Thur, Sat, Sun",
-        Time: "6am - 6pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Dog Walker",
+          price: "30",
+        },
+        {
+          service_name: "Vet Appointment",
+          price: "25",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Mon, Wed, Thur, Sat, Sun",
+          Time: "6am - 6pm",
+        },
+      ],
       imageUrl:
         "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_5949.jpg",
     },
@@ -285,27 +309,30 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 35,
-      offeredServices: [{
-        service_name: "Dog Walker",
-        price: "30"
-      },
-      {
-        service_name: "House Sitting",
-        price: "20"
-      },
-      {
-        service_name: "Vet Appointment",
-        price: "35"
-      },
-      {
-        service_name: "Groom Care",
-        price: "40"
-      },
-    ],
-      availabilty: [{
-        days: "Mon, Wed, Thur, Sun",
-        Time: "9am - 5pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Dog Walker",
+          price: "30",
+        },
+        {
+          service_name: "House Sitting",
+          price: "20",
+        },
+        {
+          service_name: "Vet Appointment",
+          price: "35",
+        },
+        {
+          service_name: "Groom Care",
+          price: "40",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Mon, Wed, Thur, Sun",
+          Time: "9am - 5pm",
+        },
+      ],
       imageUrl:
         "https://images.dog.ceo/breeds/terrier-norwich/n02094258_553.jpg",
     },
@@ -328,19 +355,22 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 45,
-      offeredServices: [{
-        service_name: "Vet Appointment",
-        price: "35"
-      },
-      {
-        service_name: "Groom Care",
-        price: "40"
-      },
-    ],
-      availabilty: [{
-        days: "Mon, Wed, Thur",
-        Time: "7am - 5pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Vet Appointment",
+          price: "35",
+        },
+        {
+          service_name: "Groom Care",
+          price: "40",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Mon, Wed, Thur",
+          Time: "7am - 5pm",
+        },
+      ],
       imageUrl:
         "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_1158.jpg",
     },
@@ -363,23 +393,26 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 50,
-      offeredServices: [{
-        service_name: "Dog Walker",
-        price: "25"
-      },
-      {
-        service_name: "House Sitting",
-        price: "20"
-      },
-      {
-        service_name: "Groom Care",
-        price: "30"
-      },
-    ],
-      availabilty: [{
-        days: "Wed, Thur, Fri",
-        Time: "12pm - 5pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Dog Walker",
+          price: "25",
+        },
+        {
+          service_name: "House Sitting",
+          price: "20",
+        },
+        {
+          service_name: "Groom Care",
+          price: "30",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Wed, Thur, Fri",
+          Time: "12pm - 5pm",
+        },
+      ],
       imageUrl:
         "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_6882.jpg",
     },
@@ -402,27 +435,30 @@ const SearchPage = () => {
         },
       ],
       hourlyPrice: 30,
-      offeredServices: [{
-        service_name: "Dog Walker",
-        price: "10"
-      },
-      {
-        service_name: "House Sitting",
-        price: "20"
-      },
-      {
-        service_name: "Vet Appointment",
-        price: "30"
-      },
-      {
-        service_name: "Groom Care",
-        price: "40"
-      },
-    ],
-      availabilty: [{
-        days: "Mon, Tue, Wed, Thur",
-        Time: "10am - 6pm"
-      }],
+      offeredServices: [
+        {
+          service_name: "Dog Walker",
+          price: "10",
+        },
+        {
+          service_name: "House Sitting",
+          price: "20",
+        },
+        {
+          service_name: "Vet Appointment",
+          price: "30",
+        },
+        {
+          service_name: "Groom Care",
+          price: "40",
+        },
+      ],
+      availabilty: [
+        {
+          days: "Mon, Tue, Wed, Thur",
+          Time: "10am - 6pm",
+        },
+      ],
       imageUrl: "https://images.dog.ceo/breeds/shihtzu/n02086240_2887.jpg",
     },
   ];
@@ -446,6 +482,8 @@ const SearchPage = () => {
   return (
     <div className="form-container">
       {!submitClicked ? (
+        <div> 
+        <h1> Search For Caregiver </h1>
         <form onSubmit={handleSubmit}>
           <label>
             Services (Pick one):
@@ -469,6 +507,7 @@ const SearchPage = () => {
               onChange={(event) => setLocation(event.target.value)}
             />
           </label>
+          <button onClick={getLocation}>Use My Current Location</button>
 
           <div className="date-time-group">
             <label>
@@ -527,12 +566,12 @@ const SearchPage = () => {
             <FaPaw /> Submit
           </button>
         </form>
+        </div>
       ) : (
         <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />
       )}
     </div>
   );
-
 };
 
 export default SearchPage;

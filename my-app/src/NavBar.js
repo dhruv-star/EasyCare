@@ -1,6 +1,6 @@
 import Brand from "./assets/icons/business_logo.PNG";
 // import { NavLink } from 'react-router-dom'
-import { FaHome, FaBell } from "react-icons/fa";
+import { FaHome, FaBell, FaUser} from "react-icons/fa";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -15,6 +15,11 @@ const NavBar = () => {
           <li>
             <a href="/home">
               <FaHome /> Home
+            </a>
+          </li>
+          <li>
+            <a href="/home">
+              <FaUser /> User Setting
             </a>
           </li>
           <li>

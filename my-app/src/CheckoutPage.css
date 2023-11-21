@@ -1,12 +1,15 @@
 .holder {
-    height: 50vh;
+    height: 200vh;
     width: 50vw; 
     position: relative;
     margin: auto;
-    padding: 20px;
 }
 
-line {
+h2{
+    padding-top: 20px;
+}
+
+#checkout {
     margin-top: 1px;
     display: block;
     margin-bottom: 10px;
@@ -47,5 +50,6 @@ button[type="confirm"]:hover {
     background: white;
     padding: 20px;
     border-radius: 5px;
+    width: 400px;
     text-align: center;
 }
