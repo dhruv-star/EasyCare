@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./ListCaregiver.css";
 import ProfilePage from "./ProfilePage";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import Heart from "react-animated-heart";
 const ListCaregiver = ({ dogWalkerData, formData }) => {
   const [formValues, setFormValues] = useState({
     serviceType: formData.services || "",
@@ -14,6 +15,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
   });
 
   const [selectedWalker, setSelectedWalker] = useState(null);
+  const [isClick, setClick] = useState(false);
 
   // Update state when form values change
   const handleChange = (event) => {
@@ -71,7 +73,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
   return (
     <div className="container">
       {selectedWalker ? (
-        <ProfilePage walker={selectedWalker} formData={formData}/>
+        <ProfilePage walker={selectedWalker} formData={formData} dogWalkerData={dogWalkerData}/>
       ) : (
         <>
       <div className="sidebar">
@@ -206,7 +208,10 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
               onClick={() => handleWalkerClick(walker)}
             >
               <div className="service-header">
-                <FavoriteButton id={walker.id} />
+                {/* <FavoriteButton id={walker.id} /> */}
+                {/* <div>
+                  <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
+                </div> */}
                 <img
                   src={walker.imageUrl}
                   alt={walker.name}

@@ -82,6 +82,7 @@ const SearchPage = () => {
         },
       ],
       imageUrl: caregiver1,
+      favorite: false
     },
     {
       id: 2,
@@ -118,6 +119,7 @@ const SearchPage = () => {
         },
       ],
       imageUrl: caregiver2,
+      favorite: true
     },
     {
       id: 3,
@@ -165,6 +167,7 @@ const SearchPage = () => {
         },
       ],
       imageUrl: "https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg",
+      favorite: true
     },
     {
       id: 4,
@@ -203,6 +206,7 @@ const SearchPage = () => {
       ],
       imageUrl:
         "https://images.dog.ceo/breeds/terrier-norwich/n02094258_230.jpg",
+      favorite: false
     },
     {
       id: 5,
@@ -250,8 +254,8 @@ const SearchPage = () => {
           Time: "1am - 9pm",
         },
       ],
-      imageUrl:
-        "https://images.dog.ceo/breeds/terrier-norwich/n02094258_2943.jpg",
+      imageUrl: "https://images.dog.ceo/breeds/terrier-norwich/n02094258_2943.jpg",
+      favorite: false
     },
     {
       id: 6,
@@ -288,8 +292,8 @@ const SearchPage = () => {
           Time: "6am - 6pm",
         },
       ],
-      imageUrl:
-        "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_5949.jpg",
+      imageUrl: "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_5949.jpg",
+      favorite: false
     },
     {
       id: 7,
@@ -333,8 +337,8 @@ const SearchPage = () => {
           Time: "9am - 5pm",
         },
       ],
-      imageUrl:
-        "https://images.dog.ceo/breeds/terrier-norwich/n02094258_553.jpg",
+      imageUrl: "https://images.dog.ceo/breeds/terrier-norwich/n02094258_553.jpg",
+      favorite: false
     },
     {
       id: 8,
@@ -373,6 +377,7 @@ const SearchPage = () => {
       ],
       imageUrl:
         "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_1158.jpg",
+      favorite: false
     },
     {
       id: 9,
@@ -415,6 +420,7 @@ const SearchPage = () => {
       ],
       imageUrl:
         "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_6882.jpg",
+        favorite: false
     },
     {
       id: 10,
@@ -460,7 +466,8 @@ const SearchPage = () => {
         },
       ],
       imageUrl: "https://images.dog.ceo/breeds/shihtzu/n02086240_2887.jpg",
-    },
+      favorite: false
+    }
   ];
 
   const handleSubmit = (event) => {
@@ -566,6 +573,38 @@ const SearchPage = () => {
             <FaPaw /> Submit
           </button>
         </form>
+
+        <div class="card-container">
+    <div class="card-image">
+      <img src="miami.jpg" alt="Miami" />
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">Miami</h2>
+      <div class="card-info">
+        <p class="card-details">Dec 11 - 18<br />Nonstop - 3 hr 6 min</p>
+      </div>
+      <p class="card-price">$58</p>
+    </div>
+  </div>
+  <div class="card-container">
+    <div class="card-image">
+      <img src="orlando.jpg" alt="Orlando" />
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">Orlando</h2>
+      <div class="card-info">
+        <p class="card-details">Jan 20 - 27, 2024<br />Nonstop - 2 hr 46 min</p>
+      </div>
+      <p class="card-price">$54</p>
+    </div>
+  </div>
+  <div class="flex-container">
+    <div class="reminder-container">
+      <h3>Reminder</h3>
+      <p>Don't forget to check the weather before your trip!</p>
+    </div>
+  </div>
+ 
         </div>
       ) : (
         <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />

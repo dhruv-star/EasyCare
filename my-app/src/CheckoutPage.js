@@ -1,15 +1,33 @@
 import React from "react";
 import "./CheckoutPage.css";
-import { useState } from "react";
+import { useState , useEffect} from "react";
+import App from './App';
 
-function CheckoutPage({ formData, walker }) {
+function CheckoutPage({ formData, walker, finalDogWalkerData}) {
   const [isConfirmed, setIsConfirmed] = useState(false);
+  const [checkoutData, setCheckoutData] = useState({});
+   useEffect(() => {
+    if(isConfirmed) {
+      setTimeout(() => {
+        // window.location.href = "./App";
+      }, 1000); 
+    }
+  }, [isConfirmed]);
 
   const handleHomeScreen = () => {
+    setCheckoutData({
+      walker: walker.name,
+      rate: walker.hourlyPrice,   
+      services: formData.services,
+      location: formData.location,
+      date: `(${formData.startDate}) - (${formData.endDate})`,
+      time: `(${formData.startTime}) - (${formData.endTime})`,  
+      dogSize: formData.dogSize
+    });
     setIsConfirmed(true);
-    setTimeout(() => {
-      window.location.href = "./App";
-    }, 1000);
+    // setTimeout(() => {
+    //   window.location.href = "./App";
+    // }, 1000);
   };
   return (
     <>
@@ -70,11 +88,19 @@ function CheckoutPage({ formData, walker }) {
         </div>
       )}
       {isConfirmed && (
+        <>
         <div className="popup-overlay">
           <div className="popup">
             <p>Confirmed!</p>
           </div>
         </div>
+
+        <App  
+            checkoutData={checkoutData}
+            finalDogWalkerData={finalDogWalkerData}  
+          />
+          </>
+
       )}
     </>
   );

@@ -3,14 +3,27 @@ import "./ProfilePage.css"; // Create and import your CSS styles as needed
 import { FaStar, FaRegStar, FaPhone, FaHeart } from "react-icons/fa";
 import { useState } from 'react';
 import CheckoutPage from './CheckoutPage';
+import Heart from "react-animated-heart";
 
 
-
-const ProfilePage = ({ walker, formData }) => {
+const ProfilePage = ({ walker, formData, dogWalkerData}) => {
   // Structure your profile page here using the walker details
   const reviews = walker.reviews || [];
 
   const [showCheckout, setCheckOut] = useState(false);
+  const [isClick, setClick] = useState(walker.favorite);
+  const [finalDogWalkerData,setDogWalkerData] = useState(dogWalkerData);
+
+  const toggleFavorite = () => {
+    const updatedData = dogWalkerData.map(w => {
+      if (w.id === walker.id) {
+        return {...w, favorite: !isClick};  
+      }
+      return w;
+    });
+    setDogWalkerData(updatedData);
+    setClick(!isClick);
+  }
 
   const goToCheckOut = () => {
     setCheckOut(true);
@@ -42,7 +55,9 @@ const ProfilePage = ({ walker, formData }) => {
               >
                 Book
               </button>
-              <div className="favorite-icon">♡</div>
+              <div className="favorite-icon">
+                <Heart isClick={isClick} onClick={toggleFavorite} />
+              </div>
             </div>
           </div>
 
@@ -79,7 +94,7 @@ const ProfilePage = ({ walker, formData }) => {
           </div>
         </div>
       )}
-      {showCheckout && <CheckoutPage formData={formData} walker={walker} />}
+      {showCheckout && <CheckoutPage formData={formData} walker={walker} finalDogWalkerData={finalDogWalkerData}/>}
     </>
   );
 };
