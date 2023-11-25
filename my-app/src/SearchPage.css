@@ -76,11 +76,18 @@ input[type="time"] {
   margin: 0;
 }
 
+.content-container {
+  display: flex; /* Use flexbox to align the cards and the reminder */
+  align-items: flex-start; /* Align items at the start of the container */
+  justify-content: space-between; /* Space between the cards and the reminder */
+}
+
+
+
 .card-container {
   display: flex;
   font-family: Arial, sans-serif;
-  /* width: 500px; */
-  width: 70%; 
+  width: 500px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -127,15 +134,11 @@ input[type="time"] {
   font-size: 0.9em;
   color: #666;
 }
-.flex-container {
-  display: flex;
-}
+
 .reminder-container {
-  float:right;
-  width: 30%; 
-  /* takes up remaining 30% width */
-  margin-left: 20px;
-  width: 300px; 
+  position: absolute;
+  right: 20px;
+  width: 650px;
   height: 300px;
   padding: 15px;
   background: #fff;

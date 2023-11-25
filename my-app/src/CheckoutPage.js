@@ -1,7 +1,7 @@
 import React from "react";
 import "./CheckoutPage.css";
 import { useState , useEffect} from "react";
-import App from './App';
+import SearchPage from './SearchPage';
 
 function CheckoutPage({ formData, walker, finalDogWalkerData}) {
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -88,18 +88,18 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
         </div>
       )}
       {isConfirmed && (
-        <>
-        <div className="popup-overlay">
-          <div className="popup">
-            <p>Confirmed!</p>
-          </div>
-        </div>
+        //  <>
+        // <div className="popup-overlay">
+        //   <div className="popup">
+        //     <p>Confirmed!</p>
+        //   </div>
+        // </div>
 
-        <App  
+        <SearchPage 
             checkoutData={checkoutData}
             finalDogWalkerData={finalDogWalkerData}  
           />
-          </>
+        // </>
 
       )}
     </>

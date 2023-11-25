@@ -6,7 +6,7 @@ import caregiver2 from "./assets/icons/sachin.png";
 
 import ListCaregiver from "./ListCaregiver";
 
-const SearchPage = () => {
+const SearchPage = ({checkoutData, finalDogWalkerData}) => {
   const [services, setServices] = useState("");
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -488,6 +488,7 @@ const SearchPage = () => {
 
   return (
     <div className="form-container">
+    {console.log(checkoutData)}
       {!submitClicked ? (
         <div> 
         <h1> Search For Caregiver </h1>
@@ -574,37 +575,44 @@ const SearchPage = () => {
           </button>
         </form>
 
-        <div class="card-container">
-    <div class="card-image">
-      <img src="miami.jpg" alt="Miami" />
-    </div>
-    <div class="card-content">
-      <h2 class="card-title">Miami</h2>
-      <div class="card-info">
-        <p class="card-details">Dec 11 - 18<br />Nonstop - 3 hr 6 min</p>
+        <h1>Trips from Chicago</h1>
+    <h1>December 2023</h1>
+    <div class="content-container">
+      <div class="cards-container">
+    <div class="card-container">
+      <div class="card-image">
+        <img src="miami.jpg" alt="Miami" />
       </div>
-      <p class="card-price">$58</p>
-    </div>
-  </div>
-  <div class="card-container">
-    <div class="card-image">
-      <img src="orlando.jpg" alt="Orlando" />
-    </div>
-    <div class="card-content">
-      <h2 class="card-title">Orlando</h2>
-      <div class="card-info">
-        <p class="card-details">Jan 20 - 27, 2024<br />Nonstop - 2 hr 46 min</p>
+      <div class="card-content">
+        <h2 class="card-title">Miami</h2>
+        <div class="card-info">
+          <p class="card-details">Dec 11 - 18<br />Nonstop - 3 hr 6 min</p>
+        </div>
+        <p class="card-price">$58</p>
       </div>
-      <p class="card-price">$54</p>
     </div>
-  </div>
-  <div class="flex-container">
+
+    <div class="card-container">
+      <div class="card-image">
+        <img src="orlando.jpg" alt="Orlando" />
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Orlando</h2>
+        <div class="card-info">
+          <p class="card-details">
+            Jan 20 - 27, 2024<br />Nonstop - 2 hr 46 min
+          </p>
+        </div>
+        <p class="card-price">$54</p>
+      </div>
+    </div>
+    </div> // end of cards-container
+
     <div class="reminder-container">
       <h3>Reminder</h3>
       <p>Don't forget to check the weather before your trip!</p>
     </div>
-  </div>
- 
+    </div>
         </div>
       ) : (
         <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />
