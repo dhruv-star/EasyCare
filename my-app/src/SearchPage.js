@@ -606,7 +606,7 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
         <p class="card-price">$54</p>
       </div>
     </div>
-    </div> // end of cards-container
+    </div> 
 
     <div class="reminder-container">
       <h3>Reminder</h3>

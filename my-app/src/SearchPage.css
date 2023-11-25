@@ -82,12 +82,14 @@ input[type="time"] {
   justify-content: space-between; /* Space between the cards and the reminder */
 }
 
-
+.cards-container {
+  width: 46%;
+}
 
 .card-container {
   display: flex;
   font-family: Arial, sans-serif;
-  width: 500px;
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -136,10 +138,11 @@ input[type="time"] {
 }
 
 .reminder-container {
+  margin-top: 10px;
   position: absolute;
   right: 20px;
-  width: 650px;
-  height: 300px;
+  width: 47%;
+  height: 350px;
   padding: 15px;
   background: #fff;
   border: 1px solid #ddd;
