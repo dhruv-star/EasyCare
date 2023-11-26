@@ -22,7 +22,6 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
       location: formData.location,
       date: `(${formData.startDate}) - (${formData.endDate})`,
       time: `(${formData.startTime}) - (${formData.endTime})`,  
-      dogSize: formData.dogSize
     });
     setIsConfirmed(true);
     // setTimeout(() => {

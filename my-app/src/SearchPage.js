@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SearchPage.css";
-import { FaPaw } from "react-icons/fa";
+import {FaPaw} from "react-icons/fa";
 import caregiver1 from "./assets/icons/virat.webp";
 import caregiver2 from "./assets/icons/sachin.png";
 
@@ -23,6 +23,29 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
       console.log(`${position.coords.latitude}, ${position.coords.longitude}`)
     });
   }
+
+let details;
+
+if (checkoutData === undefined) {
+  details = <p>Don't Have any appointment Scheduled</p>;
+} else {
+  details = (
+
+    <div>
+      {console.log(checkoutData)}
+      <p>Walker: {checkoutData.walker}</p>
+      <p>Rate: {checkoutData.rate}</p>
+      <p>Services: {checkoutData.services}</p>
+      <p>Location: {checkoutData.location}</p>
+      <p>
+        Date: ({checkoutData.date})
+      </p>
+      <p>
+        Time: ({checkoutData.time})
+      </p>
+    </div>
+  );
+}
 
   const serviceOptions = [
     { label: "House Sitting", value: "House Sitting" },
@@ -488,7 +511,6 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
 
   return (
     <div className="form-container">
-    {console.log(checkoutData)}
       {!submitClicked ? (
         <div> 
         <h1> Search For Caregiver </h1>
@@ -575,42 +597,63 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
           </button>
         </form>
 
-        <h1>Trips from Chicago</h1>
-    <h1>December 2023</h1>
+    <h2>Favorite Caregiver </h2>
     <div class="content-container">
       <div class="cards-container">
-    <div class="card-container">
-      <div class="card-image">
-        <img src="miami.jpg" alt="Miami" />
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Miami</h2>
-        <div class="card-info">
-          <p class="card-details">Dec 11 - 18<br />Nonstop - 3 hr 6 min</p>
+        <div className="cards-container">
+          {
+            finalDogWalkerData  
+              ? finalDogWalkerData.map(caregiver => {
+                  if (caregiver.favorite) {
+                    return (
+                      <div className="card-container">
+                        <div class="card-image">
+                          <img src={caregiver.imageUrl} alt="Orlando" />
+                        </div>
+                        <div className="card-content">
+                          <h2 className="card-title">{caregiver.name}</h2>
+                          <div className="card-info">
+                            <p className="card-details">
+                              {caregiver.availabilty[0].days}<br/>
+                              {caregiver.availabilty[0].Time}
+                            </p>
+                          </div>
+                          <p className="card-price">${caregiver.hourlyPrice}</p>
+                        </div>
+                      </div>
+                    )
+                  } 
+                })
+              : dogWalkerData.map(caregiver => {
+                if (caregiver.favorite) {
+                  return (
+                    <div className="card-container">
+                      <div class="card-image">
+                          <img src={caregiver.imageUrl} alt="Orlando" />
+                      </div>
+                      <div className="card-content">
+                          <h2 className="card-title">{caregiver.name}</h2>
+                          <div className="card-info">
+                            <p className="card-details">
+                              {caregiver.availabilty[0].days}<br/>
+                              {caregiver.availabilty[0].Time}
+                            </p>
+                          </div>
+                          <p className="card-price">${caregiver.hourlyPrice}</p>
+                      </div>
+                    </div>
+                   
+                  )
+                }
+              })
+          }
         </div>
-        <p class="card-price">$58</p>
-      </div>
-    </div>
-
-    <div class="card-container">
-      <div class="card-image">
-        <img src="orlando.jpg" alt="Orlando" />
-      </div>
-      <div class="card-content">
-        <h2 class="card-title">Orlando</h2>
-        <div class="card-info">
-          <p class="card-details">
-            Jan 20 - 27, 2024<br />Nonstop - 2 hr 46 min
-          </p>
-        </div>
-        <p class="card-price">$54</p>
-      </div>
-    </div>
-    </div> 
+    
+      </div> 
 
     <div class="reminder-container">
       <h3>Reminder</h3>
-      <p>Don't forget to check the weather before your trip!</p>
+      {details}
     </div>
     </div>
         </div>
