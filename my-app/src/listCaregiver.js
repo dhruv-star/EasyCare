@@ -111,7 +111,7 @@ const handleDogSizeChange = (event) => {
   // export default FavoriteButton;
 
   return (
-    <div className="container">
+      <>
       {selectedWalker ? (
         <ProfilePage
           walker={selectedWalker}
@@ -119,7 +119,7 @@ const handleDogSizeChange = (event) => {
           dogWalkerData={dogWalkerData}
         />
       ) : (
-        <>
+        <div className="container">
           <div className="sidebar">
             <form className="filter-form" onSubmit={handleSubmit}>
               <label htmlFor="serviceType">Service type</label>
@@ -290,9 +290,10 @@ const handleDogSizeChange = (event) => {
               ))}
             </ul>
           </div>
-        </>
+       
+        </div>
       )}
-    </div>
+      </>
   );
 };
 

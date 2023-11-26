@@ -512,9 +512,11 @@ if (checkoutData === undefined) {
   };
 
   return (
-    <div className="form-container">
+    <>
+  
       {!submitClicked ? (
         <div> 
+        <div className="form-container">
         <h1> Search For Caregiver </h1>
         <form onSubmit={handleSubmit}>
           <label>
@@ -598,6 +600,7 @@ if (checkoutData === undefined) {
             <FaPaw /> Submit
           </button>
         </form>
+        </div>
 
     <h2>Favorite Caregiver </h2>
     <div class="content-container">
@@ -662,7 +665,7 @@ if (checkoutData === undefined) {
       ) : (
         <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />
       )}
-    </div>
+    </>
   );
 };
 
