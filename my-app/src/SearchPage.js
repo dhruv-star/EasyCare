@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SearchPage.css";
 import {FaPaw} from "react-icons/fa";
+import { MdMyLocation } from "react-icons/md";
 import caregiver1 from "./assets/icons/virat.webp";
 import caregiver2 from "./assets/icons/sachin.png";
 import caregiver3 from "./assets/icons/mike_davis.webp";
@@ -540,8 +541,8 @@ if (checkoutData === undefined) {
               value={location}
               onChange={(event) => setLocation(event.target.value)}
             />
+            <button onClick={getLocation}><MdMyLocation /></button>
           </label>
-          <button onClick={getLocation}>Use My Current Location</button>
 
           <div className="date-time-group">
             <label>
