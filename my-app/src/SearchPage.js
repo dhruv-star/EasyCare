@@ -3,6 +3,9 @@ import "./SearchPage.css";
 import {FaPaw} from "react-icons/fa";
 import caregiver1 from "./assets/icons/virat.webp";
 import caregiver2 from "./assets/icons/sachin.png";
+import caregiver3 from "./assets/icons/mike_davis.webp";
+import caregiver4 from "./assets/icons/lisa.png";
+import caregiver5 from "./assets/icons/peter.png";
 
 import ListCaregiver from "./ListCaregiver";
 
@@ -87,7 +90,7 @@ if (checkoutData === undefined) {
           date: "October 15, 2023",
         },
       ],
-      hourlyPrice: 35,
+      hourlyPrice: 45,
       offeredServices: [
         {
           service_name: "Dog Walker",
@@ -189,7 +192,7 @@ if (checkoutData === undefined) {
           Time: "11am - 5pm",
         },
       ],
-      imageUrl: "https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg",
+      imageUrl: caregiver3,
       favorite: true
     },
     {
@@ -227,13 +230,12 @@ if (checkoutData === undefined) {
           Time: "7am - 7pm",
         },
       ],
-      imageUrl:
-        "https://images.dog.ceo/breeds/terrier-norwich/n02094258_230.jpg",
+      imageUrl: caregiver4,
       favorite: false
     },
     {
       id: 5,
-      name: "Jenny Thompson",
+      name: "Peter Parker",
       age: 29,
       overallRating: 4.9,
       location: {
@@ -244,19 +246,19 @@ if (checkoutData === undefined) {
         {
           customerName: "Alice Green",
           comment:
-            "Jenny is the best dog walker I've ever had. Will use her services indefinitely!",
+            "Peter is the best dog walker I've ever had. Will use him for services indefinitely!",
           rating: 5,
           date: "November 2, 2023",
         },
         {
           customerName: "Fred Harris",
           comment:
-            "Great experience with Jenny. My dog gets so excited when she arrives.",
+            "Peter's arrival is always the highlight of my dog's day. Their tail-wagging excitement is a true testament to his exceptional care and genuine affection. Truly a remarkable experience every time.",
           rating: 5,
           date: "October 25, 2023",
         },
       ],
-      hourlyPrice: 45,
+      hourlyPrice: 30,
       offeredServices: [
         {
           service_name: "Dog Walker",
@@ -277,7 +279,7 @@ if (checkoutData === undefined) {
           Time: "1am - 9pm",
         },
       ],
-      imageUrl: "https://images.dog.ceo/breeds/terrier-norwich/n02094258_2943.jpg",
+      imageUrl: caregiver5,
       favorite: false
     },
     {
