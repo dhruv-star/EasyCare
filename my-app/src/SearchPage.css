@@ -42,27 +42,6 @@ button:not(.active) {
   border: 1px solid #ccc;
 }
 
-button[type="submit"].submit-inactive {
-  background-color: #ccc;
-  color: #fff;
-  cursor: not-allowed;
-}
-
-button[type="submit"].submit-active {
-  background-color: #28a745; /* Soft green for submit button */
-  color: #fff;
-}
-
-button[type="submit"]:disabled {
-  background-color: #ccc;
-  color: #fff;
-  cursor: not-allowed;
-}
-
-button[type="submit"]:not(:disabled):hover {
-  background-color: #218838; /* Darker green on hover */
-}
-
 button[type="submit"] {
   background-color: #28a745; /* Soft green for submit button */
   color: #fff;
