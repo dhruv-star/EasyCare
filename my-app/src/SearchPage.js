@@ -11,6 +11,8 @@ import caregiver5 from "./assets/icons/peter.png";
 import ListCaregiver from "./ListCaregiver";
 
 const SearchPage = ({checkoutData, finalDogWalkerData}) => {
+  const [isFormValid, setIsFormValid] = useState(false);
+
   const [services, setServices] = useState("");
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -20,6 +22,20 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
   const [dogSize, setDogSize] = useState("");
   const [submitClicked, setSubmitClicked] = useState(false);
   const [formData, setFormData] = useState({});
+
+    const checkFormValidity = () => {
+      
+      const isValid =
+        services &&
+        location &&
+        startDate &&
+        endDate &&
+        startTime &&
+        endTime &&
+        dogSize &&
+        new Date(startDate) < new Date(endDate);
+      setIsFormValid(isValid);
+    };
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -499,6 +515,12 @@ if (checkoutData === undefined) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Add your validation logic here
+    if (new Date(startDate) >= new Date(endDate)) {
+      alert("Start date must be before end date.");
+      return;
+    }
+
     const formData = {
       services,
       location,
@@ -509,159 +531,186 @@ if (checkoutData === undefined) {
       dogSize,
     };
 
+  
+
+    // Then call checkFormValidity within each onChange handler
+
     setFormData(formData);
   };
 
   return (
     <>
-  
       {!submitClicked ? (
-        <div> 
-        <div className="form-container">
-        <h1> Search For Caregiver </h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Services (Pick one):
-            <div>
-              {serviceOptions.map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => setServices(option.value)}
-                  className={services === option.value ? "active" : ""}
-                >
-                  {option.label}
+        <div>
+          <div className="form-container">
+            <h1> Search For Caregiver </h1>
+            <form onSubmit={handleSubmit}>
+              <label>
+                Services (Pick one):
+                <div>
+                  {serviceOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      onClick={() => setServices(option.value)}
+                      className={services === option.value ? "active" : ""}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </label>
+              <label>
+                Location:
+                <input
+                  type="text"
+                  value={location}
+                  onChange={(event) => {
+                    setLocation(event.target.value);
+                    checkFormValidity(); // Add this line
+                  }}
+                />
+                <button onClick={getLocation}>
+                  <MdMyLocation />
                 </button>
-              ))}
-            </div>
-          </label>
-          <label>
-            Location:
-            <input
-              type="text"
-              value={location}
-              onChange={(event) => setLocation(event.target.value)}
-            />
-            <button onClick={getLocation}><MdMyLocation /></button>
-          </label>
+              </label>
 
-          <div className="date-time-group">
-            <label>
-              Start Date:
-              <input
-                type="date"
-                value={startDate}
-                onChange={(event) => setStartDate(event.target.value)}
-              />
-            </label>
+              <div className="date-time-group">
+                <label>
+                  Start Date:
+                  <input
+                    type="date"
+                    value={startDate}
+                    onChange={(event) => {
+                      setStartDate(event.target.value);
+                      checkFormValidity(); // Add this line
+                    }}
+                  />
+                </label>
 
-            <label>
-              End Date:
-              <input
-                type="date"
-                value={endDate}
-                onChange={(event) => setEndDate(event.target.value)}
-              />
-            </label>
+                <label>
+                  End Date:
+                  <input
+                    type="date"
+                    value={endDate}
+                    onChange={(event) => {
+                      setEndDate(event.target.value);
+                      checkFormValidity(); // Add this line
+                    }}
+                  />
+                </label>
 
-            <label>
-              Start Time:
-              <input
-                type="time"
-                value={startTime}
-                onChange={(event) => setStartTime(event.target.value)}
-              />
-            </label>
+                <label>
+                  Start Time:
+                  <input
+                    type="time"
+                    value={startTime}
+                    onChange={(event) => {
+                      setStartTime(event.target.value);
+                      checkFormValidity(); // Add this line
+                    }}
+                  />
+                </label>
 
-            <label>
-              End Time:
-              <input
-                type="time"
-                value={endTime}
-                onChange={(event) => setEndTime(event.target.value)}
-              />
-            </label>
+                <label>
+                  End Time:
+                  <input
+                    type="time"
+                    value={endTime}
+                    onChange={(event) => {
+                      setEndTime(event.target.value);
+                      checkFormValidity(); // Add this line
+                    }}
+                  />
+                </label>
+              </div>
+              <label>
+                Dog Size:
+                <div>
+                  {sizeOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      onClick={() => setDogSize(option.value)}
+                      className={dogSize === option.value ? "active" : ""}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </label>
+
+              <button
+                type="submit"
+                onClick={() => setSubmitClicked(true)}
+                className={isFormValid ? "submit-active" : "submit-inactive"}
+                disabled={!isFormValid}
+              >
+                {" "}
+                <FaPaw /> Submit
+              </button>
+            </form>
           </div>
-          <label>
-            Dog Size:
-            <div>
-              {sizeOptions.map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => setDogSize(option.value)}
-                  className={dogSize === option.value ? "active" : ""}
-                >
-                  {option.label}
-                </button>
-              ))}
+
+          <h2>Favorite Caregiver </h2>
+          <div class="content-container">
+            <div class="cards-container">
+              <div className="cards-container">
+                {finalDogWalkerData
+                  ? finalDogWalkerData.map((caregiver) => {
+                      if (caregiver.favorite) {
+                        return (
+                          <div className="card-container">
+                            <div class="card-image">
+                              <img src={caregiver.imageUrl} alt="Orlando" />
+                            </div>
+                            <div className="card-content">
+                              <h2 className="card-title">{caregiver.name}</h2>
+                              <div className="card-info">
+                                <p className="card-details">
+                                  {caregiver.availabilty[0].days}
+                                  <br />
+                                  {caregiver.availabilty[0].Time}
+                                </p>
+                              </div>
+                              <p className="card-price">
+                                ${caregiver.hourlyPrice}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      }
+                    })
+                  : dogWalkerData.map((caregiver) => {
+                      if (caregiver.favorite) {
+                        return (
+                          <div className="card-container">
+                            <div class="card-image">
+                              <img src={caregiver.imageUrl} alt="Orlando" />
+                            </div>
+                            <div className="card-content">
+                              <h2 className="card-title">{caregiver.name}</h2>
+                              <div className="card-info">
+                                <p className="card-details">
+                                  {caregiver.availabilty[0].days}
+                                  <br />
+                                  {caregiver.availabilty[0].Time}
+                                </p>
+                              </div>
+                              <p className="card-price">
+                                ${caregiver.hourlyPrice}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      }
+                    })}
+              </div>
             </div>
-          </label>
 
-          <button type="submit" onClick={() => setSubmitClicked(true)}>
-            {" "}
-            <FaPaw /> Submit
-          </button>
-        </form>
-        </div>
-
-    <h2>Favorite Caregiver </h2>
-    <div class="content-container">
-      <div class="cards-container">
-        <div className="cards-container">
-          {
-            finalDogWalkerData  
-              ? finalDogWalkerData.map(caregiver => {
-                  if (caregiver.favorite) {
-                    return (
-                      <div className="card-container">
-                        <div class="card-image">
-                          <img src={caregiver.imageUrl} alt="Orlando" />
-                        </div>
-                        <div className="card-content">
-                          <h2 className="card-title">{caregiver.name}</h2>
-                          <div className="card-info">
-                            <p className="card-details">
-                              {caregiver.availabilty[0].days}<br/>
-                              {caregiver.availabilty[0].Time}
-                            </p>
-                          </div>
-                          <p className="card-price">${caregiver.hourlyPrice}</p>
-                        </div>
-                      </div>
-                    )
-                  } 
-                })
-              : dogWalkerData.map(caregiver => {
-                if (caregiver.favorite) {
-                  return (
-                    <div className="card-container">
-                      <div class="card-image">
-                          <img src={caregiver.imageUrl} alt="Orlando" />
-                      </div>
-                      <div className="card-content">
-                          <h2 className="card-title">{caregiver.name}</h2>
-                          <div className="card-info">
-                            <p className="card-details">
-                              {caregiver.availabilty[0].days}<br/>
-                              {caregiver.availabilty[0].Time}
-                            </p>
-                          </div>
-                          <p className="card-price">${caregiver.hourlyPrice}</p>
-                      </div>
-                    </div>
-                   
-                  )
-                }
-              })
-          }
-        </div>
-    
-      </div> 
-
-    <div class="reminder-container">
-      <h3>Reminder</h3>
-      {details}
-    </div>
-    </div>
+            <div class="reminder-container">
+              <h3>Reminder</h3>
+              {details}
+            </div>
+          </div>
         </div>
       ) : (
         <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />
