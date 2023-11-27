@@ -9,6 +9,7 @@ import caregiver4 from "./assets/icons/lisa.png";
 import caregiver5 from "./assets/icons/peter.png";
 
 import ListCaregiver from "./ListCaregiver";
+import ProfilePage from "./ProfilePage";
 
 const SearchPage = ({checkoutData, finalDogWalkerData}) => {
   const [services, setServices] = useState("");
@@ -20,6 +21,7 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
   const [dogSize, setDogSize] = useState("");
   const [submitClicked, setSubmitClicked] = useState(false);
   const [formData, setFormData] = useState({});
+  const [selectedWalker, setSelectedWalker] = useState(null);
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -27,6 +29,14 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
       console.log(`${position.coords.latitude}, ${position.coords.longitude}`)
     });
   }
+
+  const handleWalkerClick = (walker) => {
+    // Set the selected walker and possibly change the route
+    setSelectedWalker(walker);
+    console.log(selectedWalker);
+    // If using React Router, you might do something like:
+    // navigate(`/caregiver/${walker.id}`); // navigate is from useNavigate hook
+  };
 
 let details;
 
@@ -514,7 +524,15 @@ if (checkoutData === undefined) {
 
   return (
     <>
-  
+      {selectedWalker && (
+     <ProfilePage  
+       walker={selectedWalker}
+       formData={formData}
+       dogWalkerData={dogWalkerData}
+     />
+    )}
+     {!selectedWalker && (  
+        <>
       {!submitClicked ? (
         <div> 
         <div className="form-container">
@@ -612,7 +630,7 @@ if (checkoutData === undefined) {
               ? finalDogWalkerData.map(caregiver => {
                   if (caregiver.favorite) {
                     return (
-                      <div className="card-container">
+                      <div className="card-container" onClick={() => handleWalkerClick(caregiver)}>
                         <div class="card-image">
                           <img src={caregiver.imageUrl} alt="Orlando" />
                         </div>
@@ -633,7 +651,7 @@ if (checkoutData === undefined) {
               : dogWalkerData.map(caregiver => {
                 if (caregiver.favorite) {
                   return (
-                    <div className="card-container">
+                    <div className="card-container" onClick={() => handleWalkerClick(caregiver)}>
                       <div class="card-image">
                           <img src={caregiver.imageUrl} alt="Orlando" />
                       </div>
@@ -667,6 +685,8 @@ if (checkoutData === undefined) {
         <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />
       )}
     </>
+     )}
+     </>
   );
 };
 
