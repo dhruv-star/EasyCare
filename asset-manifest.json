@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/EasyCare/static/css/main.8e9c870c.css",
-    "main.js": "/EasyCare/static/js/main.1235e3ef.js",
+    "main.js": "/EasyCare/static/js/main.b5da7768.js",
     "static/js/787.d4aba7ab.chunk.js": "/EasyCare/static/js/787.d4aba7ab.chunk.js",
     "static/media/lisa.png": "/EasyCare/static/media/lisa.b5239a7bfcc9840fdd65.png",
     "static/media/peter.png": "/EasyCare/static/media/peter.aee27c185cefc96f9501.png",
@@ -11,11 +11,11 @@
     "static/media/virat.webp": "/EasyCare/static/media/virat.23d2cb89733d098f8032.webp",
     "index.html": "/EasyCare/index.html",
     "main.8e9c870c.css.map": "/EasyCare/static/css/main.8e9c870c.css.map",
-    "main.1235e3ef.js.map": "/EasyCare/static/js/main.1235e3ef.js.map",
+    "main.b5da7768.js.map": "/EasyCare/static/js/main.b5da7768.js.map",
     "787.d4aba7ab.chunk.js.map": "/EasyCare/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8e9c870c.css",
-    "static/js/main.1235e3ef.js"
+    "static/js/main.b5da7768.js"
   ]
 }
