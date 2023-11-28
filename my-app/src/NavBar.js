@@ -13,7 +13,7 @@ const NavBar = () => {
       <div>
         <ul>
           <li>
-            <a href="/home">
+            <a href="/EasyCare">
               <FaHome /> Home
             </a>
           </li>
