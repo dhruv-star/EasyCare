@@ -54,6 +54,16 @@ button[type="submit"]:hover {
   background-color: #218838; /* Darker green on hover */
 }
 
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed; 
+  background-color: #ccc;
+}
+
+button:hover[disabled] {
+  background-color: #ccc;
+}
+
 input[type="text"],
 input[type="date"],
 input[type="time"],

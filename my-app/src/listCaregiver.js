@@ -5,28 +5,45 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Heart from "react-animated-heart";
 const ListCaregiver = ({ dogWalkerData, formData }) => {
   const [formValues, setFormValues] = useState({
-    serviceType: formData.services || [],
-    location: formData.location || "",
-    startDate: formData.startDate || "",
-    endDate: formData.endDate || "",
-    startTime: formData.startTime || "",
-    endTime: formData.endTime || "",
-    dogSize: formData.dogSize || [],
+    location: "",
+    services: [], 
+    startDate: "",
+    endDate: "",
+    dogSize: "" 
   });
+  const [original, setOriginal] = useState(formData);
 
   const [selectedWalker, setSelectedWalker] = useState(null);
   const [isClick, setClick] = useState(false);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [startDate, setStartDate] = useState(formData.startDate);
+  const [endDate, setEndDate] = useState(formData.startDate);
+
+
+  useEffect(() => {
+    setStartDate(formData.startDate);
+    setEndDate(formData.endDate);
+  }, [formData]);
+
+  useEffect(() => {
+    if(!formValues.location){
+    setFormValues({
+      location: formData.location,
+      services: formData.services, 
+      startDate: formData.startDate,
+      endDate: formData.endDate,
+      dogSize: formData.dogSize
+    });
+  }
+  }, []);
 
   // Update state when form values change
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
+  const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value 
+    });
+    console.log("Debug Time", e.target.name, e.target.value); 
+  }
 
   const handleWalkerClick = (walker) => {
     // Set the selected walker and possibly change the route
@@ -81,7 +98,7 @@ const handleDateChange = (event) => {
 const handleChangeCheckbox = (event) => {
   const { name, checked, value } = event.target;
   // For a checkbox that is part of a group (like serviceType)
-  if (name === "serviceType") {
+  if (name === "services") {
     setFormValues(prevValues => ({
       ...prevValues,
       [name]: checked
@@ -121,17 +138,18 @@ const handleDogSizeChange = (event) => {
       ) : (
         <div className="container">
           <div className="sidebar">
+            {console.log(formData)}
             <form className="filter-form" onSubmit={handleSubmit}>
-              <label htmlFor="serviceType">Service type</label>
+              <label htmlFor="services">Service type</label>
 
               <div>
                 <input
                   type="checkbox"
                   id="dogWalking"
-                  name="serviceType"
+                  name="services"
                   value="dogWalking"
                   onChange={handleChangeCheckbox}
-                  checked={formValues.serviceType.includes("dogWalking")}
+                  checked={formValues.services.includes("Dog Walking")}
                 />
                 <label htmlFor="dogWalking">DogWalking</label>
               </div>
@@ -140,10 +158,10 @@ const handleDogSizeChange = (event) => {
                 <input
                   type="checkbox"
                   id="houseSitting"
-                  name="serviceType"
+                  name="services"
                   value="houseSitting"
                   onChange={handleChangeCheckbox}
-                  checked={formValues.serviceType.includes("houseSitting")}
+                  checked={formValues.services.includes("House Sitting")}
                 />
                 <label htmlFor="houseSitting">HomeSitting</label>
               </div>
@@ -152,10 +170,10 @@ const handleDogSizeChange = (event) => {
                 <input
                   type="checkbox"
                   id="vetAppointment"
-                  name="serviceType"
+                  name="services"
                   value="vetAppointment"
                   onChange={handleChangeCheckbox}
-                  checked={formValues.serviceType.includes("vetAppointment")}
+                  checked={formValues.services.includes("Vet Appointment")}
                 />
                 <label htmlFor="vetAppointment">Vet Appoint</label>
               </div>
@@ -163,10 +181,10 @@ const handleDogSizeChange = (event) => {
                 <input
                   type="checkbox"
                   id="groomCare"
-                  name="serviceType"
+                  name="services"
                   value="groomCare"
                   onChange={handleChangeCheckbox}
-                  checked={formValues.serviceType.includes("groomCare")}
+                  checked={formValues.services.includes("Groom Care")}
                 />
                 <label htmlFor="groomCare">Groom Care</label>
               </div>
@@ -174,6 +192,7 @@ const handleDogSizeChange = (event) => {
               <label htmlFor="location">Location</label>
               <input
                 type="text"
+                name="location"
                 id="location"
                 value={formData.location}
                 onChange={handleChange}
@@ -200,45 +219,45 @@ const handleDogSizeChange = (event) => {
               <label htmlFor="dogSize">Dog Size</label>
               <div>
                 <input
-                  type="radio"
+                  type="checkbox"
                   id="size0-15"
                   name="dogSize"
                   value="0-15"
-                  onChange={handleDogSizeChange}
-                  checked={formValues.dogSize === "0-15"}
+                  onChange={handleChangeCheckbox}
+                  checked={formValues.dogSize === "Small"}
                 />
                 <label htmlFor="size0-15">0-15 lbs</label>
               </div>
               <div>
                 <input
-                  type="radio"
+                  type="checkbox"
                   id="size16-40"
                   name="dogSize"
                   value="16-40"
-                  onChange={handleDogSizeChange}
-                  checked={formValues.dogSize === "16-40"}
+                  onChange={handleChangeCheckbox}
+                  checked={formValues.dogSize === "Medium"}
                 />
                 <label htmlFor="size16-40">16-40 lbs</label>
               </div>
               <div>
                 <input
-                  type="radio"
+                  type="checkbox"
                   id="size41-100"
                   name="dogSize"
                   value="41-100"
-                  onChange={handleDogSizeChange}
-                  checked={formValues.dogSize === "41-100"}
+                  onChange={handleChangeCheckbox}
+                  checked={formValues.dogSize === "Large"}
                 />
                 <label htmlFor="size41-100">41-100 lbs</label>
               </div>
               <div>
                 <input
-                  type="radio"
+                  type="checkbox"
                   id="size101+"
                   name="dogSize"
                   value="101+"
-                  onChange={handleDogSizeChange}
-                  checked={formValues.dogSize === "101+"}
+                  onChange={handleChangeCheckbox}
+                  checked={formValues.dogSize === "Extra Large"}
                 />
                 <label htmlFor="size101+">101+ lbs</label>
               </div>

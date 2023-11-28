@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SearchPage.css";
 import {FaPaw} from "react-icons/fa";
 import { MdMyLocation } from "react-icons/md";
@@ -7,7 +7,7 @@ import caregiver2 from "./assets/icons/sachin.png";
 import caregiver3 from "./assets/icons/mike_davis.webp";
 import caregiver4 from "./assets/icons/lisa.png";
 import caregiver5 from "./assets/icons/peter.png";
-
+import Geocoder from "react-native-geocoder";
 import ListCaregiver from "./ListCaregiver";
 import ProfilePage from "./ProfilePage";
 
@@ -22,11 +22,28 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
   const [submitClicked, setSubmitClicked] = useState(false);
   const [formData, setFormData] = useState({});
   const [selectedWalker, setSelectedWalker] = useState(null);
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [filteredDogWalkers, setFilteredDogWalkers] = useState(finalDogWalkerData);
+
+  useEffect(() => {
+    if (services && location && startDate && endDate && startTime && endTime && dogSize) {
+      setIsFormValid(true);
+    } else {
+      setIsFormValid(false);
+    }
+  }, [services, location, startDate, endDate, startTime, endTime, dogSize]);
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
-      setLocation(`${position.coords.latitude}, ${position.coords.longitude}`)
-      console.log(`${position.coords.latitude}, ${position.coords.longitude}`)
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`)
+      .then(response => response.json())
+      .then(data => {
+        const city = data.address.city || data.address.town;
+        const state = data.address.state;
+
+        setLocation(`${city}, ${state}`);
+      });
+      
     });
   }
 
@@ -82,7 +99,7 @@ if (checkoutData === undefined) {
       age: 35,
       overallRating: 5.0,
       location: {
-        city: "Chicago",
+        city: "Chicago, Illinois",
         zipCode: 60611,
       },
       reviews: [
@@ -164,7 +181,7 @@ if (checkoutData === undefined) {
       age: 45,
       overallRating: 4.2,
       location: {
-        city: "Chicago",
+        city: "Chicago, Illinois",
         zipCode: 60625,
       },
       reviews: [
@@ -212,7 +229,7 @@ if (checkoutData === undefined) {
       age: 36,
       overallRating: 4.8,
       location: {
-        city: "Chicago",
+        city: "Chicago, Illinois",
         zipCode: 60640,
       },
       reviews: [
@@ -299,7 +316,7 @@ if (checkoutData === undefined) {
       age: 37,
       overallRating: 3.5,
       location: {
-        city: "Chicago",
+        city: "Chicago, Illinois",
         zipCode: 60628,
       },
       reviews: [
@@ -421,7 +438,7 @@ if (checkoutData === undefined) {
       age: 29,
       overallRating: 4.6,
       location: {
-        city: "Chicago",
+        city: "Chicago, Illinois",
         zipCode: 60647,
       },
       reviews: [
@@ -505,6 +522,14 @@ if (checkoutData === undefined) {
       favorite: false
     }
   ];
+  
+  function getDay(dateStr) {
+    const date = new Date(dateStr);
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  
+    return days[date.getDay()]; 
+  }
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -520,7 +545,37 @@ if (checkoutData === undefined) {
     };
 
     setFormData(formData);
+    const filtered = dogWalkerData.filter(walker => {
+      console.log(getDay(formData.startDate));
+      return (
+        walker.offeredServices.some(service => service.service_name === formData.services) && 
+        walker.location.city === formData.location
+      );
+    });
+    
+    setFilteredDogWalkers(filtered);
   };
+
+  const handleStartDateChange = (event) => {
+    setStartDate(event.target.value);
+    if (endDate && new Date(endDate) < new Date(event.target.value)) {
+      setEndDate(null); 
+    }
+  }
+  
+  const handleEndDateChange = (event) => {
+    if (!startDate) {
+      alert('Please select a start date first');
+      return;
+    }
+  
+    if (new Date(event.target.value) < new Date(startDate)) {
+      alert('End date cannot be before start date');
+      return; 
+    }
+  
+    setEndDate(event.target.value);
+  }
 
   return (
     <>
@@ -568,7 +623,7 @@ if (checkoutData === undefined) {
               <input
                 type="date"
                 value={startDate}
-                onChange={(event) => setStartDate(event.target.value)}
+                onChange={handleStartDateChange}
               />
             </label>
 
@@ -577,7 +632,7 @@ if (checkoutData === undefined) {
               <input
                 type="date"
                 value={endDate}
-                onChange={(event) => setEndDate(event.target.value)}
+                onChange={handleEndDateChange}
               />
             </label>
 
@@ -614,7 +669,7 @@ if (checkoutData === undefined) {
             </div>
           </label>
 
-          <button type="submit" onClick={() => setSubmitClicked(true)}>
+          <button type="submit" disabled={!isFormValid} onClick={() => setSubmitClicked(true)}>
             {" "}
             <FaPaw /> Submit
           </button>
@@ -682,7 +737,7 @@ if (checkoutData === undefined) {
     </div>
         </div>
       ) : (
-        <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />
+        <ListCaregiver dogWalkerData={filteredDogWalkers} formData={formData} />
       )}
     </>
      )}
