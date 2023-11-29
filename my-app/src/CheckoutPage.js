@@ -16,6 +16,17 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
 
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [checkoutData, setCheckoutData] = useState({});
+  const [state, setState] = useState(formData);
+
+  function handleChange(event) {
+    const {name, value} = event.target;
+    setState(prevState => ({
+      ...prevState,
+      [name]: value  
+    }));
+
+    formData[name] = value;
+  }
    useEffect(() => {
     if(isConfirmed) {
       setTimeout(() => {
@@ -28,14 +39,14 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
     setCheckoutData({
       walker: walker.name,
       rate: walker.hourlyPrice,
-      services: formData.services,
-      location: formData.location,
-      startDate: formData.startDate,
-      date: `${formData.startDate} - ${formData.endDate}`,
-      time: `${formData.startTime} - ${formData.endTime}`, 
-      endDate: formData.endDate,
-      startTime: formData.startTime,
-      endTime: formData.endTime,
+      services: state.services,
+      location: state.location,
+      startDate: state.startDate,
+      date: `${state.startDate} - ${state.endDate}`,
+      time: `${state.startTime} - ${state.endTime}`, 
+      endDate: state.endDate,
+      startTime: state.startTime,
+      endTime: state.endTime,
       petInfo: {
         name: petName,
         weight: petWeight,
@@ -67,8 +78,8 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
               <input
                 type="text"
                 name="services"
-                value={formData.services}
-                onChange={handleServicesChange}
+                value={state.services}
+                onChange={handleChange}
                 // onChange={handleChange}
               />
             </label>
@@ -79,8 +90,8 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
               <input
                 type="text"
                 name="location"
-                value={formData.location}
-                // onChange={handleChange}
+                value={state.location}
+                onChange={handleChange}
               />
             </label>
           </div>
@@ -90,8 +101,8 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
               <input
                 type="date"
                 name="startDate"
-                value={formData.startDate}
-               // onChange={handleInputChange} // Be sure to define handleInputChange to update state
+                value={state.startDate}
+                onChange={handleChange}// Be sure to define handleInputChange to update state
               />
             </label>
           </div>
@@ -101,8 +112,8 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
               <input
                 type="date"
                 name="endDate"
-                value={formData.endDate}
-              // onChange={handleInputChange} // Be sure to define handleInputChange to update state
+                value={state.endDate}
+                onChange={handleChange} // Be sure to define handleInputChange to update state
               />
             </label>
           </div>
@@ -112,8 +123,8 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
               <input
                 type="time"
                 name="startTime"
-                value={formData.startTime}
-              //  onChange={handleInputChange} // Be sure to define handleInputChange to update state
+                value={state.startTime}
+                onChange={handleChange} // Be sure to define handleInputChange to update state
               />
             </label>
           </div>
@@ -123,8 +134,8 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
               <input
                 type="time"
                 name="endTime"
-                value={formData.endTime}
-              //  onChange={handleInputChange} // Be sure to define handleInputChange to update state
+                value={state.endTime}
+                onChange={handleChange}// Be sure to define handleInputChange to update state
               />
             </label>
           </div>
