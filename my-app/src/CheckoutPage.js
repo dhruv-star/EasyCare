@@ -31,6 +31,8 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
       services: formData.services,
       location: formData.location,
       startDate: formData.startDate,
+      date: `${formData.startDate} - ${formData.endDate}`,
+      time: `${formData.startTime} - ${formData.endTime}`, 
       endDate: formData.endDate,
       startTime: formData.startTime,
       endTime: formData.endTime,
@@ -45,9 +47,7 @@ function CheckoutPage({ formData, walker, finalDogWalkerData}) {
       },
     });
     setIsConfirmed(true);
-    // setTimeout(() => {
-    //   window.location.href = "./App";
-    // }, 1000);
+  
   };
 
   const handleServicesChange = (event) => {

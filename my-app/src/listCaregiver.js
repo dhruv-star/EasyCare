@@ -42,7 +42,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
       ...formValues,
       [e.target.name]: e.target.value 
     });
-    console.log("Debug Time", e.target.name, e.target.value); 
+    // console.log("Debug Time", e.target.name, e.target.value); 
   }
 
   const handleWalkerClick = (walker) => {
@@ -56,7 +56,7 @@ const ListCaregiver = ({ dogWalkerData, formData }) => {
   const handleSubmit = (event) => {
     //event.preventDefault();
     // Filter dogWalkerData based on formValues here
-    console.log("Submitted values:", formValues);
+    // console.log("Submitted values:", formValues);
   };
 
   const [favorites, setFavorites] = useState({});
@@ -138,7 +138,7 @@ const handleDogSizeChange = (event) => {
       ) : (
         <div className="container">
           <div className="sidebar">
-            {console.log(formData)}
+            {/* {console.log(formData)} */}
             <form className="filter-form" onSubmit={handleSubmit}>
               <label htmlFor="services">Service type</label>
 

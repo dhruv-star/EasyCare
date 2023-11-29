@@ -7,7 +7,12 @@ import caregiver2 from "./assets/icons/sachin.png";
 import caregiver3 from "./assets/icons/mike_davis.webp";
 import caregiver4 from "./assets/icons/lisa.png";
 import caregiver5 from "./assets/icons/peter.png";
-import Geocoder from "react-native-geocoder";
+import caregiver6 from "./assets/icons/Taylor.jpeg"
+import caregiver7 from "./assets/icons/PS3.png"
+import caregiver8 from "./assets/icons/david.png"
+import caregiver9 from "./assets/icons/michael.png"
+import caregiver10 from "./assets/icons/anderson.png"
+
 import ListCaregiver from "./ListCaregiver";
 import ProfilePage from "./ProfilePage";
 
@@ -50,7 +55,7 @@ const SearchPage = ({checkoutData, finalDogWalkerData}) => {
   const handleWalkerClick = (walker) => {
     // Set the selected walker and possibly change the route
     setSelectedWalker(walker);
-    console.log(selectedWalker);
+    // console.log(selectedWalker);
     // If using React Router, you might do something like:
     // navigate(`/caregiver/${walker.id}`); // navigate is from useNavigate hook
   };
@@ -63,16 +68,16 @@ if (checkoutData === undefined) {
   details = (
 
     <div>
-      {console.log(checkoutData)}
+      {/* {console.log(checkoutData)} */}
       <p>Walker: {checkoutData.walker}</p>
       <p>Rate: {checkoutData.rate}</p>
       <p>Services: {checkoutData.services}</p>
       <p>Location: {checkoutData.location}</p>
       <p>
-        Date: ({checkoutData.date})
+        Date: {checkoutData.date}
       </p>
       <p>
-        Time: ({checkoutData.time})
+        Time: {checkoutData.time}
       </p>
     </div>
   );
@@ -345,7 +350,7 @@ if (checkoutData === undefined) {
           Time: "6am - 6pm",
         },
       ],
-      imageUrl: "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_5949.jpg",
+      imageUrl: caregiver6,
       favorite: false
     },
     {
@@ -390,7 +395,7 @@ if (checkoutData === undefined) {
           Time: "9am - 5pm",
         },
       ],
-      imageUrl: "https://images.dog.ceo/breeds/terrier-norwich/n02094258_553.jpg",
+      imageUrl: caregiver7,
       favorite: false
     },
     {
@@ -428,8 +433,7 @@ if (checkoutData === undefined) {
           Time: "7am - 5pm",
         },
       ],
-      imageUrl:
-        "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_1158.jpg",
+      imageUrl:caregiver8,
       favorite: false
     },
     {
@@ -471,8 +475,7 @@ if (checkoutData === undefined) {
           Time: "12pm - 5pm",
         },
       ],
-      imageUrl:
-        "https://images.dog.ceo/breeds/spaniel-brittany/n02093754_6882.jpg",
+      imageUrl:caregiver9,
         favorite: false
     },
     {
@@ -518,7 +521,7 @@ if (checkoutData === undefined) {
           Time: "10am - 6pm",
         },
       ],
-      imageUrl: "https://images.dog.ceo/breeds/shihtzu/n02086240_2887.jpg",
+      imageUrl: caregiver10,
       favorite: false
     }
   ];
@@ -545,15 +548,15 @@ if (checkoutData === undefined) {
     };
 
     setFormData(formData);
-    const filtered = dogWalkerData.filter(walker => {
-      console.log(getDay(formData.startDate));
-      return (
-        walker.offeredServices.some(service => service.service_name === formData.services) && 
-        walker.location.city === formData.location
-      );
-    });
+    // const filtered = dogWalkerData.filter(walker => {
+    //   console.log(getDay(formData.startDate));
+    //   return (
+    //     walker.offeredServices.some(service => service.service_name === formData.services) && 
+    //     walker.location.city === formData.location
+    //   );
+    // });
     
-    setFilteredDogWalkers(filtered);
+    // setFilteredDogWalkers(filtered);
   };
 
   const handleStartDateChange = (event) => {
@@ -737,7 +740,7 @@ if (checkoutData === undefined) {
     </div>
         </div>
       ) : (
-        <ListCaregiver dogWalkerData={filteredDogWalkers} formData={formData} />
+        <ListCaregiver dogWalkerData={dogWalkerData} formData={formData} />
       )}
     </>
      )}
